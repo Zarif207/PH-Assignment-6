@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  -->
+    <!-- favicon link -->
     <link rel="shortcut icon" href="assets/hero-leaf1.png" type="image/x-icon">
+    <!-- font awesome link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- tailwind and css link -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -29,7 +31,7 @@
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a class="text-xl text-white">Green Earth</a>
+    <a class="text-xl text-white"><i class="fa-brands fa-pagelines"></i>Green Earth</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-white">
@@ -79,7 +81,7 @@ generations.</p>
 
      <!-- Campaign Section -->
       <section class="bg-[#f0fdf4] pt-20 pb-20">
-        <h1 class="text-3xl font-semibold text-center">About the Campaign</h1>
+        <h1 class="text-3xl font-semibold text-center text-[#16803c]">About the Campaign</h1>
         <div class="flex justify-center items-center gap-10 pt-12">
             <div class="right">
                 <img src="assets/about.png" class="w-[430px] h-[430px]" alt="">
@@ -103,43 +105,65 @@ generations.</p>
 
       <!-- impact section -->
        <section class="bg-[#d0f0dd] h-[450px] pt-20">
-        <h1 class="text-3xl font-semibold text-center pb-10">Our Impact</h1>
+        <h1 class="text-3xl font-semibold text-center pb-10 text-[#16803c]">Our Impact</h1>
         <div class=" flex justify-between items-center max-w mx-auto px-[150px] gap-10 ">
             
-
-            <div class="crad1 w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
-            transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
+            transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-200">
                 <div class="text-center space-y-4">
                     <h1 class="text-3xl font-semibold text-[#16803c]">500K+</h1>
                     <p class="text-[#49535d]">Trees Planted</p>
                 </div>
             </div>
 
-            <div class="crad2 w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
-            transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
+            transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-200">
                 <div class="text-center space-y-4">
                     <h1 class="text-3xl font-semibold text-[#16803c]">120+</h1>
                     <p class="text-[#49535d]">Communities Involved</p>
                 </div>
-
             </div>
-            <div class="crad3 w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
-            transform transition duration-300 hover:scale-105 hover:shadow-xl">
+
+            <div class="w-[450px] h-[150px] bg-white flex items-center justify-center rounded-xl shadow-md 
+            transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-200">
                 <div class="text-center space-y-4">
                     <h1 class="text-3xl font-semibold text-[#16803c]">30+</h1>
                     <p class="text-[#49535d]">Countries Reached</p>
                 </div>
-
             </div>
-
-
-
-
-
-
         </div>
-
        </section>
+
+
+
+        <!-- plant tree section -->
+<section class="bg-green-800 py-15">
+    <h2 class="text-center text-2xl font-semibold text-white mb-6">Plant a Tree Today</h2>
+
+  <div class="w-[550px] mx-auto bg-green-700 p-8 rounded-xl shadow-lg">
+    
+    <form class="space-y-4">
+      <input type="text" placeholder="Your Name" class="input input-bordered w-full" />
+      <input type="email" placeholder="Your Email Address" class="input input-bordered w-full" />
+
+      <select title="input" class="select select-bordered w-full">
+        <option disabled selected>Number of Trees</option>
+        <option>1 Tree - $5</option>
+        <option>5 Trees - $25</option>
+        <option>10 Trees - $50</option>
+      </select>
+
+      <button type="button" class="btn w-full bg-yellow-400 text-green-800 rounded-full">Donate Now</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+    <div class="w-full h-[60px] bg-[#14532d]">
+        <p class="text-white text-center pt-5">© 2025 Green Earth. All Rights Reserved.</p>
+
+    </div>
+</footer>
 
 
 

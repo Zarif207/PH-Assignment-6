@@ -54,31 +54,35 @@ const displayAllTrees = (plants) => {
 
   plants.forEach((plant) => {
     const card = document.createElement("div");
-    card.className = "max-w-sm bg-white rounded-2xl shadow p-4";
+    card.className = "max-w-sm bg-white rounded-2xl";
 
     card.innerHTML = `
   
-      <div class="bg-gray-200 w-full h-50 rounded-lg flex items-center justify-center">
-        <img src="${plant.image}" alt="${
-      plant.name
-    }" class="w-[350px] h-[200px] object-cover rounded-lg">
-      </div>
-  
-      <div class="mt-4">
-        <h2 class="text-lg font-semibold text-gray-900">${plant.name}</h2>
-        <p class="text-sm text-gray-600 mt-1">
-          ${plant.description}.slice(0, 80)}...
-        </p>
-        <div class="flex items-center justify-between mt-3">
-          <span class="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
-            ${plant.category}
-          </span>
-          <span class="text-gray-900 font-semibold">৳${plant.price}</span>
-        </div>
-        <button class="w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-medium py-2 rounded-full transition">
-          Add to Cart
-        </button>
-      </div>
+     <div class="max-w-sm bg-white rounded-lg shadow p-4 flex flex-col h-full">
+  <!-- Image -->
+  <div class="bg-white w-full h-50 rounded-lg flex items-center justify-center">
+    <img src="${plant.image}" alt="${plant.name}" class="w-[350px] h-[200px] object-cover rounded-3xl py-[10px]">
+  </div>
+
+  <!-- Content -->
+  <div class="mt-auto flex flex-col h-full">
+    <h2 class="text-lg font-semibold text-gray-900">${plant.name}</h2>
+    <p class="text-sm text-gray-600 mt-1">
+      ${plant.description.slice(0, 80)}...
+    </p>
+
+    <!-- Bottom section -->
+    <div class="flex items-center justify-between mt-3">
+      <span class="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
+        ${plant.category}
+      </span>
+      <span class="text-gray-900 font-semibold">৳${plant.price}</span>
+    </div>
+    <button class="w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-medium py-2 rounded-full transition">
+      Add to Cart
+    </button>
+  </div>
+</div>
     `;
 
     middle.appendChild(card);

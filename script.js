@@ -1,4 +1,5 @@
-// categories fetch
+// Categories API 
+
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -8,26 +9,32 @@ const loadCategory = () => {
 const displayCategory = (categories) => {
   const categoriesContainer = document.getElementById("categories-container");
   categoriesContainer.innerHTML = "";
-  for (let category of categories) {
-    console.log(category);
+
+  categories.forEach((category) => {
     const listDiv = document.createElement("div");
     listDiv.innerHTML = `
-                  
-                  
-                  <button class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg text-left transition-colors duration-200 w-[250px]"> ${category.category_name} </button>
+      <button class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg text-left transition-colors duration-200 w-[250px]"> ${category.category_name} </button>
     `;
-    categoriesContainer.append(listDiv);
-  }
+    categoriesContainer.appendChild(listDiv);
+  });
 };
+
 loadCategory();
 
 
 
-// All Trees fetch
+
+
+//Plants API 
+
+
 const loadAllTrees = () => {
   fetch("https://openapi.programming-hero.com/api/plants")
     .then((res) => res.json())
-    .then((load) => displayAllTrees(load.data)); 
+    .then((data) => {
+      console.log("API Response:", data); 
+      displayAllTrees(data.plants); 
+    });
 };
 
 const displayAllTrees = (plants) => {
@@ -35,26 +42,46 @@ const displayAllTrees = (plants) => {
   plantsContainer.innerHTML = "";
   const allTreesBtn = document.createElement("button");
   allTreesBtn.className =
-    "bg-[#16803c] text-white cursor-pointer p-2 rounded-lg text-left w-[250px]";
+    "bg-[#16803c] text-white cursor-pointer p-2 rounded-lg text-left w-[250px] mb-2";
   allTreesBtn.innerText = "All Trees";
-  plantsContainer.append(allTreesBtn);
+  allTreesBtn.onclick = loadAllTrees;
+  plantsContainer.appendChild(allTreesBtn);
 
+
+
+  const middle = document.getElementById("middle");
+  middle.innerHTML = "";
 
   plants.forEach((plant) => {
-    const plantDiv = document.createElement("div");
-    plantDiv.className =
-      "flex items-center gap-3 border p-3 rounded-lg shadow-sm bg-white mt-2";
+    const card = document.createElement("div");
+    card.className = "max-w-sm bg-white rounded-2xl shadow p-4";
 
-    plantDiv.innerHTML = `
-      <img src="${plant.image}" alt="${plant.name}" class="w-16 h-16 object-cover rounded-md">
-      <div>
-        <h3 class="font-semibold">${plant.name}</h3>
-        <p class="text-sm text-gray-600">${plant.description.slice(0, 60)}...</p>
-        <p class="text-green-700 font-bold">৳${plant.price}</p>
-      </div> 
+    card.innerHTML = `
+  
+      <div class="bg-gray-200 w-full h-50 rounded-lg flex items-center justify-center">
+        <img src="${plant.image}" alt="${
+      plant.name
+    }" class="w-[350px] h-[200px] object-cover rounded-lg">
+      </div>
+  
+      <div class="mt-4">
+        <h2 class="text-lg font-semibold text-gray-900">${plant.name}</h2>
+        <p class="text-sm text-gray-600 mt-1">
+          ${plant.description}.slice(0, 80)}...
+        </p>
+        <div class="flex items-center justify-between mt-3">
+          <span class="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">
+            ${plant.category}
+          </span>
+          <span class="text-gray-900 font-semibold">৳${plant.price}</span>
+        </div>
+        <button class="w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-medium py-2 rounded-full transition">
+          Add to Cart
+        </button>
+      </div>
     `;
 
-    plantsContainer.append(plantDiv);
+    middle.appendChild(card);
   });
 };
 

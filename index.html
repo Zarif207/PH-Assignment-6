@@ -10,14 +10,13 @@
     <!-- tailwind and css link -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
     <title>Green Earth</title>      
 </head>
 <body>
 
 
     <!-- navbar section -->
-    <nav>
+    <nav class="sticky top-0 z-50 ">
         <div class="navbar bg-base-100 shadow-sm bg-[#16803c] px-25">
   <div class="navbar-start">
     <div class="dropdown">
@@ -41,7 +40,7 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <button class="btn bg-[#facc14] text-[#16803c] rounded-3xl">Plant a Tree</button>
+    <button class="btn bg-[#facc14] text-[#16803c] rounded-3xl hover:bg-[#16803c] hover:text-white transform transition duration-300 hover:scale-105">Plant a Tree</button>
   </div>
 </div>
     </nav>
@@ -56,7 +55,7 @@
   <h1 class="text-4xl font-bold">Plant a Tree, Grow a Future</h1>
   <p class="text-[#425158] text-center pb-5">Join our mission to plant 1 million trees and make the Earth greener for future <br>
 generations.</p>
-  <button class="btn bg-[#facc14] text-[#16803c] rounded-3xl">Get Involved</button>
+  <button class="btn bg-[#facc14] text-[#16803c] rounded-3xl hover:bg-[#16803c] hover:text-white transform transition duration-300 hover:scale-105">Get Involved</button>
 </div>
     </section>
 
@@ -64,12 +63,44 @@ generations.</p>
     
     <!-- main section -->
      <section class="bg-[#f0fdf4] h-[900px] pt-20">
-        <p class="text-3xl font-semibold text-center pb-10">Choose Your Trees</p>
-        <div class="grid grid-cols-12 max-w mx-auto px-15">
+        <p class="text-3xl font-semibold text-center text-[#16803c] pb-10">Choose Your Trees</p>
+        <div class="grid grid-cols-12 max-w mx-auto px-15"> <!-- max-w mx-auto -->
 
-            <div class="left border-2 border-red-500 col-span-2 ">
+            <!-- <div class="left border-2 border-red-500 col-span-2 w-full]">
+                <p class="text-2xl font-medium pb-5">Categories</p>
+                <div class="pl-2">
+                    <ul class="space-y-4 text-xl ">
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">All Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Fruit Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Flowering Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Shade Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Medicinal Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Timber Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Evergreen Trees</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Ornamental Plants</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Bamboo</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Climbers</li>
+                    <li class="hover:bg-[#16803c] hover:text-white cursor-pointer p-2 rounded-lg transition-colors duration-200">Aquatic Plants</li>
+                </ul>
+                </div>
+            </div> -->
+
+
+
+            <div class="left border-2 border-red-500 col-span-2 w-full gap-5" >
+                <p class="text-2xl font-medium pb-5">Categories</p>
+
+                <div id="plants-container"> 
+                    
+                </div>
+
+
+                <div class="" id="categories-container">  </div>
+
             </div>
             
+
+
             <div class="middle border-2 border-green-500 col-span-8"></div>
 
             <div class="right border-2 border-blue-500 col-span-2"></div>
@@ -153,7 +184,7 @@ generations.</p>
         <option>10 Trees - $50</option>
       </select>
 
-      <button type="button" class="btn w-full bg-yellow-400 text-green-800 rounded-full">Donate Now</button>
+      <button type="button" class="btn w-full bg-yellow-400 text-green-800 rounded-full hover:bg-[#16803c] hover:text-white transform transition duration-300 ">Donate Now</button>
     </form>
   </div>
 </section>
@@ -170,5 +201,18 @@ generations.</p>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

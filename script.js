@@ -235,7 +235,6 @@ const addToCart = (plant) => {
   total += plant.price;
   updateCartUI();
 };
-
 const removeFromCart = (index) => {
   const item = cart[index];
   total -= item.price * item.quantity;

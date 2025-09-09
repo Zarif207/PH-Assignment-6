@@ -122,9 +122,10 @@ plants.forEach(plant => {
       <span class="text-gray-900 font-semibold">৳${plant.price}</span>
     </div>
     <button 
-      class="w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-medium py-2 rounded-full transition">
-      Add to Cart
-    </button>
+  onclick='addToCart({id: ${plant.id}, name: "${plant.name}", price: ${plant.price}})'
+  class="cardBtn w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-medium py-2 rounded-full transition">
+  Add to Cart
+</button>
   </div>
 </div>
   `;
@@ -145,6 +146,65 @@ const AllTreesButton = () => {
   plantsContainer.appendChild(allBtn);
   setActiveButton(allBtn);
 }
+
+// cart function
+let cart = [];
+let total = 0;
+
+const updateCartUI = () => {
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+
+  cartItemsContainer.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.className =
+      "flex justify-between items-center bg-green-50 px-3 py-2 rounded-lg";
+
+    div.innerHTML = `
+      <div>
+        <h4 class="font-semibold text-gray-800">${item.name}</h4>
+        <p class="text-gray-500">৳${item.price} x ${item.quantity}</p>
+      </div>
+      <button 
+        onclick="removeFromCart(${index})"
+        class="text-gray-500 hover:text-red-500 font-bold text-lg"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    `;
+    cartItemsContainer.appendChild(div);
+  });
+
+  cartTotal.textContent = `৳${total}`;
+};
+
+const addToCart = (plant) => {
+  const existingItem = cart.find((item) => item.id === plant.id);
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ ...plant, quantity: 1 });
+  }
+
+  total += plant.price;
+  updateCartUI();
+};
+
+const removeFromCart = (index) => {
+  const item = cart[index];
+  total -= item.price * item.quantity;
+  cart.splice(index, 1);
+  updateCartUI();
+};
+
+
+
+
+
+
 
 AllTreesButton();
 loadCategory();

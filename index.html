@@ -60,9 +60,7 @@ generations.</p>
     </section>
 
 
-
     <!-- main section -->
-
 <section class="bg-[#f0fdf4] h-auto pt-20">
   <p class="text-3xl font-semibold text-center text-[#16803c] pb-10">
     Choose Your Trees
@@ -73,30 +71,25 @@ generations.</p>
       <div id="plants-container"></div>
       <div id="categories-container"></div>
     </div>
-    <div
-      class="middle col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      id="middle"
-    ></div>
 
 
-     <!-- Right Side Cart -->
-    <div class="right col-span-2">
-       
-<div id="cart" class="p-4 bg-white rounded-xl shadow-md">
-  <h2 class="text-xl font-bold mb-4">Your Cart</h2>
-  <div id="cart-items" class="space-y-3">
+<div class="middle relative col-span-8 flex flex-col items-center min-h-[500px]">
+  <div id="loading-spinner" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <span class="loading loading-spinner loading-xl"></span>
   </div>
-  <div class="border-t pt-3 mt-4 flex justify-between items-center">
-    <span class="text-lg font-semibold">Total:</span>
-    <span id="cart-total" class="text-lg font-bold">৳0</span>
-  </div>
+  <div id="middle" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full"></div>
 </div>
+
+    <div class="right col-span-2">
+      <div id="cart" class="p-4 bg-white rounded-xl shadow-md">
+        <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+        <div id="cart-items" class="space-y-3"></div>
+        <div class="border-t pt-3 mt-4 flex justify-between items-center">
+          <span class="text-lg font-semibold">Total:</span>
+          <span id="cart-total" class="text-lg font-bold">৳0</span>
+        </div>
+      </div>
     </div>
-
-
-
-
-
   </div>
 </section>
 

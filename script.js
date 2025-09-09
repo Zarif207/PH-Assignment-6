@@ -10,6 +10,17 @@ const setActiveButton = (btn) => {
   activeButton = btn;
 }
 
+
+// loading spinner
+const showSpinner = () => {
+  document.getElementById("loading-spinner").classList.remove("hidden");
+};
+
+const hideSpinner = () => {
+  document.getElementById("loading-spinner").classList.add("hidden");
+};
+
+
 // main section
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -61,26 +72,40 @@ const displayCategory = (categories) => {
     container.appendChild(btn);
   });
 }
-// 2nd api call
+
+
 const loadAllTrees = () => {
+  showSpinner();
   fetch("https://openapi.programming-hero.com/api/plants")
     .then(res => res.json())
-    .then(data => displayAllTrees(data.plants))
-    .catch(err => console.error(err));
-}
+    .then(data => {
+      displayAllTrees(data.plants);
+      hideSpinner(); 
+    })
+    .catch(err => {
+      console.error(err);
+      hideSpinner();
+    });
+};
 
+// Category Trees fetch
 const loadCategoryPlants = (categoryId) => {
+  showSpinner(); 
   fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
     .then(res => res.json())
     .then(data => {
-      if(data.plants && data.plants.length > 0){
+      if (data.plants && data.plants.length > 0) {
         displayAllTrees(data.plants);
       } else {
         displayAllTrees([]);
       }
+      hideSpinner(); 
     })
-    .catch(err => console.error(err));
-}
+    .catch(err => {
+      console.error(err);
+      hideSpinner();
+    });
+};
 
 
 const displayAllTrees = (plants) => {
@@ -145,7 +170,7 @@ const AllTreesButton = () => {
   };
   plantsContainer.appendChild(allBtn);
   setActiveButton(allBtn);
-}
+} 
 
 // cart function
 let cart = [];
@@ -169,8 +194,7 @@ const updateCartUI = () => {
       </div>
       <button 
         onclick="removeFromCart(${index})"
-        class="text-gray-500 hover:text-red-500 font-bold text-lg"
-      >
+        class="text-gray-500 hover:text-red-500 font-bold text-lg">
         <i class="fa-solid fa-xmark"></i>
       </button>
     `;
@@ -199,12 +223,6 @@ const removeFromCart = (index) => {
   cart.splice(index, 1);
   updateCartUI();
 };
-
-
-
-
-
-
 
 AllTreesButton();
 loadCategory();
